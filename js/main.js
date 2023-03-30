@@ -119,3 +119,26 @@ txtNombre.addEventListener("blur", function (event) {
     event.preventDefault();
     txtNombre.value = txtNombre.value.trim();
 });
+window.addEventListener("load", function(event){
+    // console.log("load...");
+    if (localStorage.getItem("contadorProductos")==null){
+        localStorage.setItem("contadorProductos","0");
+    }
+    
+    if (localStorage.getItem("totalEnProductos")==null){
+        localStorage.setItem("totalEnProductos","0");
+    }
+    
+    if (localStorage.getItem("costoTotal")==null){
+        localStorage.setItem("costoTotal","0.0");
+    }
+
+    contador=parseInt(localStorage.getItem("contadorProductos")) ;
+    totalEnProductos=localStorage.getItem("totalEnProductos");
+    costoTotal=parseFloat(localStorage.getItem("costoTotal")) ;
+
+    contadorProductos.innerText=contador;
+    productosTotal.innerText=totalEnProductos;
+    precioTotal.innerText=`$ ${costoTotal}`;
+
+});
